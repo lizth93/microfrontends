@@ -7,25 +7,11 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Grid from '@material-ui/core/Grid';
 import StarIcon from '@material-ui/icons/StarBorder';
 import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
 import { Link as RouterLink } from 'react-router-dom';
-import { products, footers } from '../utils/constants';
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+import { products } from '../utils/constants';
+import Footer from './Footer';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -43,15 +29,26 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     margin: theme.spacing(1, 1.5),
+    textDecoration: 'none',
+    '&:hover': {
+      transform: 'scale(1.05)', // efecto hover
+      boxShadow: '0 8px 20px rgba(0,0,0,0.3)',
+    },
+
   },
   heroContent: {
     padding: theme.spacing(8, 0, 6),
   },
+  card: {
+    transition: 'transform 0.3s, box-shadow 0.3s',
+    '&:hover': {
+      transform: 'scale(1.05)', // efecto hover en todo el card
+      boxShadow: '0 12px 30px rgba(0,0,0,0.3)',
+    },
+  },
   cardHeader: {
-    backgroundColor:
-      theme.palette.type === 'light'
-        ? theme.palette.grey[200]
-        : theme.palette.grey[700],
+    color: '#ffffff',
+    backgroundColor: '#4caf50',
   },
   cardPricing: {
     display: 'flex',
@@ -59,25 +56,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'baseline',
     marginBottom: theme.spacing(2),
   },
-  footer: {
-    borderTop: `1px solid ${theme.palette.divider}`,
-    marginTop: theme.spacing(8),
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(6),
-      paddingBottom: theme.spacing(6),
-    },
-  },
 }));
-
 
 export default function Pricing() {
   const classes = useStyles();
 
   return (
     <React.Fragment>
-      {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.heroContent}>
         <Typography
           component="h1"
@@ -86,7 +71,7 @@ export default function Pricing() {
           color="textPrimary"
           gutterBottom
         >
-          Pricing
+          Planes de Suscripción
         </Typography>
         <Typography
           variant="h5"
@@ -94,16 +79,15 @@ export default function Pricing() {
           color="textSecondary"
           component="p"
         >
-          Quickly build an effective pricing table for your potential customers
-          with this layout. It&apos;s built with default Material-UI components
-          with little customization.
+          Elige el plan que mejor se adapte a ti y empieza a disfrutar de todas las ventajas.
+          Desde opciones gratuitas hasta experiencias premium para los más exigentes.
         </Typography>
       </Container>
-      {/* End hero unit */}
+
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
           {products.map((product) => (
-            // Enterprise card is full width at sm breakpoint
+
             <Grid
               item
               key={product.id}
@@ -111,7 +95,7 @@ export default function Pricing() {
               sm={product.title === 'Enterprise' ? 12 : 6}
               md={4}
             >
-              <Card>
+              <Card className={classes.card}>
                 <CardHeader
                   title={product.title}
                   subheader={product.subheader}
@@ -157,31 +141,7 @@ export default function Pricing() {
           ))}
         </Grid>
       </Container>
-      {/* Footer */}
-      <Container maxWidth="md" component="footer" className={classes.footer}>
-        <Grid container spacing={4} justifyContent="space-evenly">
-          {footers.map((footer) => (
-            <Grid item xs={6} sm={3} key={footer.title}>
-              <Typography variant="h6" color="textPrimary" gutterBottom>
-                {footer.title}
-              </Typography>
-              <ul>
-                {footer.description.map((item) => (
-                  <li key={item}>
-                    <Link href="#" variant="subtitle1" color="textSecondary">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-          ))}
-        </Grid>
-        <Box mt={5}>
-          <Copyright />
-        </Box>
-      </Container>
-      {/* End footer */}
+      <Footer />
     </React.Fragment>
   );
 }

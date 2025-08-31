@@ -1,69 +1,38 @@
 export const products = [
     {
-        title: 'Free',
+        title: 'Gratis',
         price: '0',
         description: [
-            '10 users included',
-            '2 GB of storage',
-            'Help center access',
-            'Email support',
+            'Escucha con anuncios',
+            'Saltos limitados de canciones',
+            'Calidad estándar de audio',
+            'Acceso a playlists públicas',
         ],
-        buttonText: 'Sign up for free',
+        buttonText: 'Prueba gratis',
         buttonVariant: 'outlined',
     },
     {
-        title: 'Pro',
-        subheader: 'Most popular',
-        price: '15',
+        title: 'Premium',
+        price: '9.99',
         description: [
-            '20 users included',
-            '10 GB of storage',
-            'Help center access',
-            'Priority email support',
+            'Sin anuncios',
+            'Saltos ilimitados',
+            'Calidad de audio HD',
+            'Descarga música para escuchar offline',
         ],
-        buttonText: 'Get started',
+        buttonText: 'Suscríbete',
         buttonVariant: 'contained',
     },
     {
-        title: 'Enterprise',
-        price: '30',
+        title: 'Familiar',
+        price: '14.99',
         description: [
-            '50 users included',
-            '30 GB of storage',
-            'Help center access',
-            'Phone & email support',
+            'Hasta 6 cuentas Premium',
+            'Control parental incluido',
+            'Playlists compartidas',
+            'Soporte prioritario',
         ],
-        buttonText: 'Contact us',
+        buttonText: 'Únete con tu familia',
         buttonVariant: 'outlined',
-    },
-];
-
-export const footers = [
-    {
-        title: 'Company',
-        description: ['Team', 'History', 'Contact us', 'Locations'],
-    },
-    {
-        title: 'Features',
-        description: [
-            'Cool stuff',
-            'Random feature',
-            'Team feature',
-            'Developer stuff',
-            'Another one',
-        ],
-    },
-    {
-        title: 'Resources',
-        description: [
-            'Resource',
-            'Resource name',
-            'Another resource',
-            'Final resource',
-        ],
-    },
-    {
-        title: 'Legal',
-        description: ['Privacy policy', 'Terms of use'],
     },
 ];
