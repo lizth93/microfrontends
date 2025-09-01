@@ -8,9 +8,9 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import MaterialLink from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 import Footer from './Footer';
+import { options } from '../utils/constants';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -49,15 +49,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
 export default function Album() {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <main>
-        {/* Hero unit */}
+
         <div className={classes.heroContent}>
           <Container maxWidth="sm">
             <Typography
@@ -75,9 +73,8 @@ export default function Album() {
               color="textSecondary"
               paragraph
             >
-              Something short and leading about the collection below—its
-              contents, the creator, etc. Make it short and sweet, but not too
-              short so folks don&apos;t simply skip over it entirely.
+              Explora contenido destacado, eventos y recomendaciones musicales seleccionadas para ti.
+
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justifyContent="center">
@@ -100,31 +97,28 @@ export default function Album() {
           </Container>
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
-          {/* End hero unit */}
           <Grid container spacing={4}>
-            {cards.map((card) => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+            {options.map((card) => (
+              <Grid item key={card.title} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
+                    image={card.image}
+                    title={card.title}
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                      {card.title}
                     </Typography>
-                    <Typography>
-                      This is a media card. You can use this section to describe
-                      the content.
-                    </Typography>
+                    <ul>
+                      {card.description.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
+                    <Button size="small" color="primary" variant="contained">
+                      {card.buttonText}
                     </Button>
                   </CardActions>
                 </Card>
