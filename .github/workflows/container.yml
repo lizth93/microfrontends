@@ -7,7 +7,7 @@ on:
     paths:
       - "container/**"
 defaults:
-  runs:
+  run:
     working-directory: ./container
 
 jobs:
