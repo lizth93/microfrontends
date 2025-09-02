@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
-import Footer from './Footer';
 import { options } from '../utils/constants';
 
 const useStyles = makeStyles((theme) => ({
@@ -43,91 +42,83 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
 }));
 
 export default function Album() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
-      <main>
+    <main>
+      <div className={classes.heroContent}>
+        <Container maxWidth="sm">
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
+            Home Page
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            paragraph
+          >
+            Explora contenido destacado, eventos y recomendaciones musicales seleccionadas para ti.
 
-        <div className={classes.heroContent}>
-          <Container maxWidth="sm">
-            <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="textPrimary"
-              gutterBottom
-            >
-              Home Page
-            </Typography>
-            <Typography
-              variant="h5"
-              align="center"
-              color="textSecondary"
-              paragraph
-            >
-              Explora contenido destacado, eventos y recomendaciones musicales seleccionadas para ti.
-
-            </Typography>
-            <div className={classes.heroButtons}>
-              <Grid container spacing={2} justifyContent="center">
-                <Grid item>
-                  <Link to="/pricing">
-                    <Button variant="contained" color="primary">
-                      Pricing
-                    </Button>
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link to="/pricing">
-                    <Button variant="outlined" color="primary">
-                      Pricing
-                    </Button>
-                  </Link>
-                </Grid>
+          </Typography>
+          <div className={classes.heroButtons}>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item>
+                <Link to="/pricing">
+                  <Button variant="contained" color="primary">
+                    Pricing
+                  </Button>
+                </Link>
               </Grid>
-            </div>
-          </Container>
-        </div>
-        <Container className={classes.cardGrid} maxWidth="md">
-          <Grid container spacing={4}>
-            {options.map((card) => (
-              <Grid item key={card.title} xs={12} sm={6} md={4}>
-                <Card className={classes.card}>
-                  <CardMedia
-                    className={classes.cardMedia}
-                    image={card.image}
-                    title={card.title}
-                  />
-                  <CardContent className={classes.cardContent}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {card.title}
-                    </Typography>
-                    <ul>
-                      {card.description.map((line) => (
-                        <li key={line}>{line}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary" variant="contained">
-                      {card.buttonText}
-                    </Button>
-                  </CardActions>
-                </Card>
+              <Grid item>
+                <Link to="/pricing">
+                  <Button variant="outlined" color="primary">
+                    Pricing
+                  </Button>
+                </Link>
               </Grid>
-            ))}
-          </Grid>
+            </Grid>
+          </div>
         </Container>
-      </main>
-      <Footer />
-    </React.Fragment>
+      </div>
+      <Container className={classes.cardGrid} maxWidth="md">
+        <Grid container spacing={4}>
+          {options.map((card) => (
+            <Grid item key={card.title} xs={12} sm={6} md={4}>
+              <Card className={classes.card}>
+                <CardMedia
+                  className={classes.cardMedia}
+                  image={card.image}
+                  title={card.title}
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {card.title}
+                  </Typography>
+                  <ul>
+                    {card.description.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" color="primary" variant="contained">
+                    {card.buttonText}
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </main>
   );
 }

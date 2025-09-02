@@ -11,7 +11,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link as RouterLink } from 'react-router-dom';
 import { products } from '../utils/constants';
-import Footer from './Footer';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -141,7 +140,6 @@ export default function Pricing() {
           ))}
         </Grid>
       </Container>
-      <Footer />
     </React.Fragment>
   );
 }
