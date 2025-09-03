@@ -33,9 +33,44 @@ Aunque se podría haber implementado cada microfrontend en repositorios independ
    - `npm run build` para generar un bundle de producción.
 7. Configuración de **despliegue automático** independiente por cada microfrontend usando **GitHub Actions**, **Amazon S3** y **CloudFront**. Cada vez que se hace merge a `main`, los cambios se despliegan automáticamente al bucket de S3 correspondiente y se crea una invalidación en CloudFront para actualizar los archivos en caché.
 
+## Ejecución en producción
+
 URL de la aplicación: https://d1m4f3owvjn23j.cloudfront.net/
 
+## Ejecución local
+
+Cada microfrontend se ejecuta en un puerto diferente:
+
+| Microfrontend | Ruta / URL local                                                       |
+| ------------- | ---------------------------------------------------------------------- |
+| Container     | [http://localhost:8080](http://localhost:8080)                         |
+| Marketing     | [http://localhost:8081](http://localhost:8081)                         |
+| Auth / Login  | [http://localhost:8082](http://localhost:8082)                         |
+| SignUp        | [http://localhost:8082/auth/signup](http://localhost:8082/auth/signup) |
+| SignIn        | [http://localhost:8082/auth/signin](http://localhost:8082/auth/signin) |
+| Home Page     | [http://localhost:8081/](http://localhost:8081/)                       |
+| Pricing       | [http://localhost:8081/pricing](http://localhost:8081/pricing)         |
+
 ---
+
+## Estructura de las carpetas principales:
+
+/container
+├─ src/
+├─ config/
+├─ package.json
+/marketing
+├─ src/
+├─ config/
+├─ package.json
+/auth
+├─ src/
+├─ config/
+├─ package.json
+/.github
+├─ auth.yml/
+├─ container.yml/
+├─ marketing.yml/
 
 ## Tecnologías usadas en la prueba
 
