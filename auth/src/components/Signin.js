@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Container,
   TextField,
   Button,
   Typography,
@@ -34,7 +33,6 @@ export default function SignIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí va tu lógica de login
     console.log({ email, password });
   };
 

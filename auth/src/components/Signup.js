@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import {
-  Container,
   TextField,
   Button,
   Typography,
@@ -39,7 +38,6 @@ export default function SignUp() {
       alert('Passwords do not match');
       return;
     }
-    // Aquí va tu lógica de signup
     console.log({ email, password });
   };
 
