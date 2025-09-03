@@ -14,10 +14,10 @@ Aunque se podría haber implementado cada microfrontend en repositorios independ
 
 ## Objetivo(s) de la prueba
 
+- Entender la tecnología de microfrontends.
 - Evaluar la integración de microfrontends usando **Webpack Module Federation**.
 - Permitir que cada microfrontend se ejecute de forma independiente durante el desarrollo.
 - Facilitar la escalabilidad y mantenimiento de la aplicación dividiendo responsabilidades por dominio funcional.
-
 ---
 
 ## Pasos implementados para llevar a cabo la prueba
