@@ -26,7 +26,7 @@ Aunque se podría haber implementado cada microfrontend en repositorios independ
 2. Exposición de módulos (`AuthApp`, `MarketingApp`) desde los microfrontends para que el contenedor los consuma.
 3. Creación de un **host container** que integra los microfrontends y gestiona la navegación.
 4. Implementación de rutas con **React Router v5** para navegación dentro del contenedor.
-5. Creación de componentes UI con **Material-UI** y **styled-components**.
+5. Creación de componentes UI con **Material-UI**.
 6. Configuración de scripts de desarrollo y build independientes para cada microfrontend:
    - `npm install` para instalar dependencias.
    - `npm start` para levantar la aplicación en modo desarrollo.
