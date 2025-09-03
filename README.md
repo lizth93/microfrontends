@@ -55,22 +55,23 @@ Cada microfrontend se ejecuta en un puerto diferente:
 
 ## Estructura de las carpetas principales:
 
-/container
-├─ src/
-├─ config/
-├─ package.json
-/marketing
-├─ src/
-├─ config/
-├─ package.json
-/auth
-├─ src/
-├─ config/
-├─ package.json
-/.github
-├─ auth.yml/
-├─ container.yml/
-├─ marketing.yml/
+- /container
+  - src/
+  - config/
+  - package.json
+- /marketing
+  - src/
+  - config/
+  - package.json
+- /auth
+  - src/
+  - config/
+  - package.json
+- /.github
+  - auth.yml
+  - container.yml
+  - marketing.yml
+
 
 ## Tecnologías usadas en la prueba
 
