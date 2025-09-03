@@ -33,6 +33,8 @@ Aunque se podría haber implementado cada microfrontend en repositorios independ
    - `npm run build` para generar un bundle de producción.
 7. Configuración de **despliegue automático** independiente por cada microfrontend usando **GitHub Actions**, **Amazon S3** y **CloudFront**. Cada vez que se hace merge a `main`, los cambios se despliegan automáticamente al bucket de S3 correspondiente y se crea una invalidación en CloudFront para actualizar los archivos en caché.
 
+URL de la aplicación: https://d1m4f3owvjn23j.cloudfront.net/
+
 ---
 
 ## Tecnologías usadas en la prueba
@@ -48,7 +50,6 @@ Aunque se podría haber implementado cada microfrontend en repositorios independ
 - React DOM
 - React Router DOM v5
 - Material-UI v4
-- styled-components
 - react-material-ui-carousel
 - Webpack 5 + Dev Server
 - Babel (presets para React y ESNext)
