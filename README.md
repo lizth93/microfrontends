@@ -14,9 +14,19 @@ Aunque se podría haber implementado cada microfrontend en repositorios independ
 
 ## Objetivo(s) de la prueba
 
-- Evaluar la integración de microfrontends usando **Webpack Module Federation**.
-- Permitir que cada microfrontend se ejecute de forma independiente durante el desarrollo.
-- Facilitar la escalabilidad y mantenimiento de la aplicación dividiendo responsabilidades por dominio funcional.
+El objetivo principal de esta prueba fue **explorar y aprender conceptos de arquitectura de software aplicados a microfrontends**, evaluando su viabilidad en un entorno realista. En particular:  
+
+- **Entender la tecnología de microfrontends:** cómo dividir una aplicación monolítica en módulos independientes que puedan evolucionar de manera desacoplada.  
+- **Evaluar la integración con Webpack Module Federation:** aprender cómo compartir dependencias, exponer componentes y consumirlos dinámicamente entre aplicaciones.  
+- **Permitir ejecución independiente en desarrollo:** garantizar que cada microfrontend pueda ejecutarse por separado, facilitando la productividad de los equipos y reduciendo dependencias innecesarias en etapas tempranas.  
+- **Facilitar escalabilidad y mantenimiento:** adoptar un enfoque de arquitectura orientado a dominios funcionales, donde cada microfrontend asuma una responsabilidad clara, reduciendo la complejidad a medida que la aplicación crece.  
+
+### 📚 Aprendizajes de arquitectura  
+
+- Manejo de la **autonomía de despliegue** sin perder coherencia en la aplicación final.  
+- Retos de **compartición de librerías comunes** (React, estilos, utilidades) evitando duplicación de bundles.  
+- Estrategias para mantener **contratos claros entre microfrontends** y minimizar acoplamiento.  
+- Validación del impacto en la **experiencia de desarrollo** (hot reload, debugging, testing).  
 
 ---
 
@@ -26,7 +36,7 @@ Aunque se podría haber implementado cada microfrontend en repositorios independ
 2. Exposición de módulos (`AuthApp`, `MarketingApp`) desde los microfrontends para que el contenedor los consuma.
 3. Creación de un **host container** que integra los microfrontends y gestiona la navegación.
 4. Implementación de rutas con **React Router v5** para navegación dentro del contenedor.
-5. Creación de componentes UI con **Material-UI** y **styled-components**.
+5. Creación de componentes UI con **Material-UI**.
 6. Configuración de scripts de desarrollo y build independientes para cada microfrontend:
    - `npm install` para instalar dependencias.
    - `npm start` para levantar la aplicación en modo desarrollo.
@@ -55,22 +65,23 @@ Cada microfrontend se ejecuta en un puerto diferente:
 
 ## Estructura de las carpetas principales:
 
-/container
-├─ src/
-├─ config/
-├─ package.json
-/marketing
-├─ src/
-├─ config/
-├─ package.json
-/auth
-├─ src/
-├─ config/
-├─ package.json
-/.github
-├─ auth.yml/
-├─ container.yml/
-├─ marketing.yml/
+- /container
+  - src/
+  - config/
+  - package.json
+- /marketing
+  - src/
+  - config/
+  - package.json
+- /auth
+  - src/
+  - config/
+  - package.json
+- /.github
+  - auth.yml
+  - container.yml
+  - marketing.yml
+
 
 ## Tecnologías usadas en la prueba
 
@@ -106,12 +117,25 @@ Cada microfrontend se ejecuta en un puerto diferente:
 ---
 
 ## Conclusiones
+- **Webpack Module Federation** facilita la integración de microfrontends manteniendo independencia de despliegue.  
+- Un **monorepositorio** simplifica la coordinación inicial, pero en un escenario real los microfrontends podrían vivir en repositorios separados.  
+- La arquitectura permite **escalar** y añadir nuevos microfrontends sin afectar el contenedor ni los módulos existentes.  
+- Es una solución **viable** para proyectos que requieren modularidad y despliegues independientes por equipo o dominio.  
 
-- **Webpack Module Federation** facilita la integración de microfrontends manteniendo independencia de despliegue.
-- Un monorepositorio simplifica la coordinación inicial, pero los microfrontends podrían estar en repositorios separados en un escenario real.
-- La arquitectura permite escalar y añadir nuevos microfrontends sin afectar el contenedor ni los módulos existentes.
-- Es una solución viable para proyectos que requieren modularidad y despliegues independientes por equipo o dominio.
+### Ventajas  
 
+- Autonomía de despliegue y desarrollo por cada equipo.  
+- Posibilidad de reutilizar componentes y librerías comunes.  
+- Escalabilidad: fácil incorporación de nuevos microfrontends.  
+- Reducción del acoplamiento entre módulos.  
+- Favorece la organización por dominios funcionales.  
+
+### Desventajas  
+
+- Mayor complejidad en la configuración inicial (Webpack, routing, comunicación entre microfrontends).  
+- Potenciales problemas de rendimiento si no se gestionan bien las dependencias compartidas.  
+- Riesgo de inconsistencias en librerías comunes si no se controlan versiones.  
+- Testing y debugging pueden ser más complejos que en un monolito tradicional. 
 ---
 
 ## Instrucciones de ejecución
