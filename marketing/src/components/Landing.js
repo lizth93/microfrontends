@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link } from 'react-router-dom';
 import { options } from '../utils/constants';
+import HomeCarousel from './carrousel';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -51,40 +52,15 @@ export default function Album() {
     <main>
       <div className={classes.heroContent}>
         <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            Home Page
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph
-          >
-            Explora contenido destacado, eventos y recomendaciones musicales seleccionadas para ti.
-
-          </Typography>
+          <HomeCarousel />
           <div className={classes.heroButtons}>
             <Grid container spacing={2} justifyContent="center">
-              <Grid item>
-                <Link to="/pricing">
-                  <Button variant="contained" color="primary">
-                    Pricing
-                  </Button>
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link to="/pricing">
-                  <Button variant="outlined" color="primary">
-                    Pricing
-                  </Button>
-                </Link>
-              </Grid>
+
+              <Link to="/pricing">
+                <Button variant="contained" color="primary">
+                  Pricing
+                </Button>
+              </Link>
             </Grid>
           </div>
         </Container>
