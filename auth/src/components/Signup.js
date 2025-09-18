@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp({ onSignIn }) {
   const classes = useStyles();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -82,6 +82,7 @@ export default function SignUp() {
           variant="contained"
           color="primary"
           className={classes.submit}
+          onClick={onSignIn}
         >
           Sign Up
         </Button>
